@@ -1,0 +1,10 @@
+#header {
+    background-image: url('../../assets/images/more/header.jpg');
+    height: 120px;
+}
+
+@media screen and (max-width: 640px) {
+    #header {
+        height: 95px;
+    }
+}

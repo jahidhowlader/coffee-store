@@ -1,0 +1,18 @@
+/* Google font Link */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700&family=Rancho&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input{
+  @apply rounded
+}
+
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
+.rancho{
+  font-family: 'Rancho', cursive;
+}
