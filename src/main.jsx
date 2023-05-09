@@ -7,6 +7,7 @@ import {
 import Main from './layout/Main';
 import AddCoffee from './page/addCoffee/AddCoffee';
 import Home from './page/home/Home';
+import ViewCoffee from './page/viewCoffee/ViewCoffee';
 
 const router = createBrowserRouter([
   {
@@ -16,12 +17,17 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/add-coffee')
+        loader: () => fetch('http://localhost:5000/coffee')
       },
       {
         path: 'add-coffee',
         element: <AddCoffee></AddCoffee>
-      }
+      },
+      {
+        path: 'coffee/:_id',
+        element: <ViewCoffee></ViewCoffee>,
+        loader: ({params}) => fetch(`http://localhost:5000/coffee/${params._id}`)
+      },
     ]
   },
 ]);

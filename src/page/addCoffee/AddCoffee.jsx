@@ -1,5 +1,6 @@
 import './AddCoffee.css'
 import { FaArrowLeft } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
@@ -25,33 +26,31 @@ const AddCoffee = () => {
             },
             body: JSON.stringify(addCoffee)
         })
-        .then(res => res.json())
-        .then(data=> {
-            if(data.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'successfully added new coffee..',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                  })
-                console.log(data);
-            }
-        })
-
-        // console.log(addCoffee);
-
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'successfully added new coffee..',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
 
     return (
         <section id='add-cofee-bg'>
             <div className='container mx-auto py-12'>
-                <div>
-                    <button>
-                        <FaArrowLeft></FaArrowLeft>
-                    </button>
-                    <p className='inline rancho text-3xl ml-4 drop-shadow-lg'>Back to home</p>
-                </div>
+                <Link to='/'>
+                    <span className='hover:bg-btn-clr hover:py-3 hover:rounded hover:pr-2'>
+                        <button>
+                            <FaArrowLeft></FaArrowLeft>
+                        </button>
+                        <p className='inline rancho text-3xl ml-4 drop-shadow-lg '>Back to home</p>
+                    </span>
+                </Link>
 
                 <div className='my-12 px-28 bg-add-coffee rounded'>
                     <div className='grid grid-cols-12'>
@@ -101,11 +100,11 @@ const AddCoffee = () => {
                             </div>
                             {/* Row of Photo */}
                             <div className='flex gap-x-6 mb-6'>
-                                <div  className='w-1/2'>
+                                <div className='w-1/2'>
                                     <label className='pb-4 block font-bold'>Photo</label>
                                     <input type="text" placeholder="Enter photo URL" name='photo' className="input w-full" />
                                 </div>
-                                <div  className='w-1/2'>
+                                <div className='w-1/2'>
                                     <label className='pb-4 block font-bold'>Price</label>
                                     <input type="text" placeholder="Enter coffee price" name='price' className="input w-full" />
                                 </div>
